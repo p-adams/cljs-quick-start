@@ -1,17 +1,15 @@
-(ns cljs-quick-start.core)
+(ns cljs-quick-start.core
+    (:require react-dom))
 
 
-(defonce app (.getElementById js/document "app"))
-
-(defn render [el]
-    (.appendChild app el))
-
-(defn p-node [t]
-    (let [el (.createElement js/document "p")]
-        (set! (.-innerHTML el) t)
-        el))
+(defonce root (.createRoot js/ReactDOM (.getElementById js/document "app")))
 
 
-(render (p-node "meow"))
+(defn app []
+    (let [el (.createElement js/React "div" nil "meow")]
+    el))
+
+(.render root (app))
+
 
 
