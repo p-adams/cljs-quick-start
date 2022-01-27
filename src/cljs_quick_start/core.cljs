@@ -8,7 +8,7 @@
 
 
 (defn app []
-    (let [el (.createElement js/React "div" nil "meow")]
+    (let [el (.createElement js/React "div" #js{:className "app-container"} "meow")]
     el))
 
 (.render root
