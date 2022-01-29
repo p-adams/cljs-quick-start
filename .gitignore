@@ -1,6 +1,2 @@
 out
-.cpcache
-.calva
-.clj-kondo
-.lsp
-.lsp.nrepl-port
+.idea

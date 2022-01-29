@@ -19,7 +19,7 @@
                 (str "count: " c)))
 
 (defn counter []
-  (.createElement js/React "div" nil 0))
+  (.createElement js/React "div" nil "hello"))
 
 
 
