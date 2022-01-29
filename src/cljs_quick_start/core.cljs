@@ -1,31 +1,22 @@
 (ns cljs-quick-start.core
-    (:require react-dom))
-
-;;(defn e (1)
-;; [el props & children]
-;;  (apply js/React.createElement el (clj->js props) children))
-
-
+    (:require ["react" :as react]
+              ["react-dom" :as react-dom]
+              [sablono.core :as html :refer-macros [html]]))
 
 (defonce root
-    (.createRoot js/ReactDOM
+    (.createRoot react-dom
         (.getElementById js/document "app")))
 
-(let [[c, s] (js/React.useState 0)]
-    (.createElement js/React "div" #js{:className "counter-app"}
-            (.createElement js/React "button"
-                {:onClick
-                    (fn []( s (inc c)))})
-                (str "count: " c)))
 
 (defn counter []
-  (.createElement js/React "div" nil "hello"))
-
+   (let [count 0]
+     (html [:div {:className "counter-app"} count])))
 
 
 (defn app []
-    (let [el (.createElement js/React "div" #js{:className "app-container"} (counter))]
-    el))
+    (html [:div {:className "app-container"} (counter)]))
+
+
 
 (.render root
     (app))
