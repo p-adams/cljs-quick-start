@@ -7,7 +7,7 @@
         (.getElementById js/document "app")))
 
 (defn counter []
-    (0))
+    (.createElement js/React "div" #js{:className "counter-app"} nil))
 
 
 (defn app []
